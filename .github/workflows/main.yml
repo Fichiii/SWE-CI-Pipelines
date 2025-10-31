@@ -45,5 +45,5 @@ jobs:
           name: java-build-artifact
           path: $BIN_DIR
       - name: Run Java Test
-        run: java -cp $BIN_DIR Main
+        run: java -cp $BIN_DIR App
       
