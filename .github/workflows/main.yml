@@ -4,8 +4,8 @@ on: [push]
 
 #Variablen
 env:
-  SRC_DIR: "./Pipeline-Test/src/App.java"
-  BIN_DIR: "./Pipeline-Test/bin"
+  SRC_DIR: "/Pipeline-Test/src/App.java"
+  BIN_DIR: "/Pipeline-Test/bin"
 
 jobs:
   #Build-Job
