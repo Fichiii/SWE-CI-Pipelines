@@ -33,6 +33,7 @@ public class App {
             System.out.println("Alle Tests bestanden!");
         } else {
             System.out.println("Nicht alle Tests bestanden!");
+            System.exit(1);
         }
     }
 
@@ -40,5 +41,6 @@ public class App {
         return a*b;
     }
 }
+
 
 
