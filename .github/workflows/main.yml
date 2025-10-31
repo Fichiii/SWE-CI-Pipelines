@@ -14,9 +14,6 @@ jobs:
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
-        with:
-          java-version: '17'
-          distibution: 'temurin'
 
       - name: Create bin directory
         run: mkdir $BIN_DIR
