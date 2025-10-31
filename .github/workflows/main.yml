@@ -4,7 +4,7 @@ on: [push]
 
 #Variablen
 env:
-  SRC_DIR: "src"
+  SRC_DIR: "Pipeline-Test/src/App.java"
   BIN_DIR: "bin"
 
 jobs:
@@ -20,7 +20,7 @@ jobs:
 
         
       - name: Compile Java
-        run: javac -d $BIN_DIR $SRC_DIR/*.java
+        run: javac -d $BIN_DIR $SRC_DIR
 
       - name: artifacts
         uses: actions/upload-artifact@v4
