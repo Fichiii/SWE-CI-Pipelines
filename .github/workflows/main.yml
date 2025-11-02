@@ -5,7 +5,6 @@ on: [push]
 #Variablen
 env:
   SRC_DIR: "Pipeline-Test/src/*.java"
-  BIN_DIR: "Pipeline-Test/bin"
 
 jobs:
   #Build-Job
@@ -24,18 +23,18 @@ jobs:
           distribution: 'temurin'
     #bin ordner erstellen, falls nicht vorhanden
       - name: Create bin directory
-        run: mkdir -p $BIN_DIR
+        run: mkdir -p Pipeline-Test/bin
 
       #Kompiliere Java
       - name: Compile Java
-        run: javac -d $BIN_DIR $SRC_DIR
+        run: javac -d Pipeline-Test/bin $SRC_DIR
 
       #Artefakte uploaden damit test darauf zugreifen kann
       - name: Upload artifacts
         uses: actions/upload-artifact@v5
         with:
           name: java-build-artifact
-          path: ${{env.BIN_DIR}}
+          path: Pipeline-Test/bin
 
   #Test-Job
   test:
@@ -54,8 +53,8 @@ jobs:
         uses: actions/download-artifact@v5
         with:
           name: java-build-artifact
-          path: ${{env.BIN_DIR}}
+          path: Pipeline-Test/bin
         #Java ausführen
       - name: Run Java Test
-        run: java -cp $BIN_DIR App
+        run: java -cp Pipeline-Test/bin App
       
