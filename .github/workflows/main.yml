@@ -35,7 +35,7 @@ jobs:
         uses: actions/upload-artifact@v5
         with:
           name: java-build-artifact
-          path: $BIN_DIR
+          path: ${{env.BIN_DIR}}
 
   #Test-Job
   test:
@@ -54,7 +54,7 @@ jobs:
         uses: actions/download-artifact@v5
         with:
           name: java-build-artifact
-          path: $BIN_DIR
+          path: ${{env.BIN_DIR}}
         #Java ausführen
       - name: Run Java Test
         run: java -cp $BIN_DIR App
