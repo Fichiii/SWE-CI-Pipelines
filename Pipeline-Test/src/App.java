@@ -5,7 +5,7 @@ public class App {
 
         boolean allTestsPassed = true;
         //Test1: positive Zahlen
-        if(multiply(3,4) == 15){
+        if(multiply(3,4) == 12){
             System.out.println("Test1: 3 * 4 = 12 erfolgreich!");
         } else {
             System.out.println("Test1: 3 * 4 = 12 nicht erfolgreich!");
@@ -41,6 +41,7 @@ public class App {
         return a*b;
     }
 }
+
 
 
 
