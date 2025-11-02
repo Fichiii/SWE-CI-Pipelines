@@ -4,18 +4,19 @@ on: [push]
 
 #Variablen
 env:
-  SRC_DIR: "Pipeline-Test/src/App.java"
+  SRC_DIR: "Pipeline-Test/src/*.java"
   BIN_DIR: "Pipeline-Test/bin"
 
 jobs:
   #Build-Job
   build:
+  #Die VM auf der das ausgeführt wird
     runs-on: ubuntu-latest
     steps:
     #Den Code vom Repo holen
       - name: Checkout Code
         uses: actions/checkout@v4
-    #JDK fzum kompilieren einrichten    
+    #JDK zum kompilieren einrichten    
       - name: Set up JDK 17
         uses: actions/setup-java@v4
         with:
@@ -29,9 +30,9 @@ jobs:
       - name: Compile Java
         run: javac -d $BIN_DIR $SRC_DIR
 
-      #Artefakte uploaden damit test dasrauf zugreifen kann
+      #Artefakte uploaden damit test darauf zugreifen kann
       - name: Upload artifacts
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: java-build-artifact
           path: ${{env.BIN_DIR}}
@@ -50,7 +51,7 @@ jobs:
           distribution: 'temurin'
         #Artefakt holen
       - name: Download build artifact
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v5
         with:
           name: java-build-artifact
           path: ${{env.BIN_DIR}}
